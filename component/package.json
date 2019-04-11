@@ -1,0 +1,11 @@
+{
+  "name": "react-native-zbc-video-player",
+  "version": "0.1.1",
+  "description": "a simple video controls component that built for react-native.Based on react-native-video",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zbc",
+  "license": "ISC"
+}
