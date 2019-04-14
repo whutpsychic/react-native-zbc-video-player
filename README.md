@@ -7,6 +7,9 @@ A `<Video>` component with controls for react-native,based on [react-native-vide
 
 ```react-native-video``` version 3.x requires react-native >= 0.40.0
 
+## Demo
+
+![](./demo.gif)
 
 ## Current version：0.1.3
 
