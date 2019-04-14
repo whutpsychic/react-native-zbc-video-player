@@ -8,7 +8,12 @@ const styles = StyleSheet.create({
   indicator: {
     flexDirection:"row",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    height:"100%"
+  },
+  indicatorImg:{
+    width:30,
+    height:30
   },
   videoContainer: {
     width: "100%",

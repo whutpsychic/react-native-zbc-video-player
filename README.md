@@ -8,7 +8,7 @@ A `<Video>` component with controls for react-native,based on [react-native-vide
 ```react-native-video``` version 3.x requires react-native >= 0.40.0
 
 
-## Current version：0.1.1
+## Current version：0.1.3
 
 ## Table of Contents
 
@@ -16,6 +16,10 @@ A `<Video>` component with controls for react-native,based on [react-native-vide
 * [Usage](#usage)
 
 ## Installation
+
+> **Tips:**
+> Cause the ActivityIndicator of React-native has bugs, after ver.0.1.3 I get a gif file takes the place of it. So please make sure that the configure file of your project support gif. For more Information, please see the docs about `<Image/>` of React-native.
+
 
 Using npm:
 
@@ -45,10 +49,13 @@ Then follow the instructions for your platform to link react-native-video into y
 ### Standard Method
 
 Run 
-`react-native link react-native-video`
-`react-native link @react-native-community/slider`
-`react-native link react-native-orientation`
-`react-native link react-native-vector-icons`
+
+```shell
+react-native link react-native-video
+react-native link @react-native-community/slider
+react-native link react-native-orientation
+react-native link react-native-vector-icons
+```
 
 to link the react-native-video library.
 
@@ -61,10 +68,13 @@ to link the react-native-video library.
   <summary>Android</summary>
 
 Run 
-`react-native link react-native-video`
-`react-native link @react-native-community/slider`
-`react-native link react-native-orientation`
-`react-native link react-native-vector-icons`
+
+```shell
+react-native link react-native-video
+react-native link @react-native-community/slider
+react-native link react-native-orientation
+react-native link react-native-vector-icons
+```
 
 to link the react-native-video library.
 
@@ -133,6 +143,7 @@ protected List<ReactPackage> getPackages() {
 </details>
 
 
+
 ## Usage
 
 ```javascript
@@ -140,7 +151,7 @@ protected List<ReactPackage> getPackages() {
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 
-import VideoPlayer from "./video/index";
+import VideoPlayer from "react-native-zbc-video-player";
 
 const movieDetailUrl =
   "http://qukufile2.qianqian.com/data2/video/d33d7035e19253b19f379b7f9aa98c6e/612987418/612987418.mp4";
@@ -165,7 +176,6 @@ export default class App extends Component<Props> {
           // repeat={true}
           // autoHideControls={false}
           // hideControlsTimeout={6000}
-          // loadingColor="green"
         />
       </View>
     );
@@ -195,7 +205,6 @@ This component extends all props and events from `react-native-video`,for more i
 ### Configurable props
 * [autoHideControls](#autoHideControls)
 * [hideControlsTimeout](#hideControlsTimeout)
-* [loadingColor](#loadingColor)
 * [maxTitleFonts](#maxTitleFonts)
 * [playerHeight](#playerHeight)
 * [source](#source)
@@ -222,9 +231,6 @@ Configure the controllers whether can be hide automatically.
 
 How long after no action trigger hiding the controllers.
 
-#### loadingColor
-
-What color of the `ActivityIndicator`.
 
 #### maxTitleFonts
 
@@ -270,12 +276,13 @@ Callback function that is called when the player reaches the end of the media.
 
 - [ ] Slide left side of the media to justify brightness.
 - [ ] A longer video process bar with both current play time & media duration-time.
-
+- [ ] Custom Loading gif
 
 ## TODOS(CN)
 
 - [ ] 滑动视频左半部分可以改变亮度，右半部分改变音量。
 - [ ] 视频进度条分上层更宽，并附加当前时间和总时长。
+- [ ] 自定义loading动画。
 
 
 

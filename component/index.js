@@ -9,7 +9,7 @@
 // √7.加载视频时的loading提示图层
 //
 //开发者：zbc             首版开发日期：2019-04-04
-//                       上一次维护日期：2019-04-11
+//                       上一次维护日期：2019-04-14
 //QQ:1511828529
 // ***************** 功能需求 *******************
 import React from "react";
@@ -26,6 +26,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import styles from "./style";
 
 import EP from "./eventsEl.js";
+import Loading from "./Loading/index";
 
 const deviceInfo = {
   deviceWidth: Dimensions.get("window").width,
@@ -77,6 +78,7 @@ export default class extends EP {
     //允许自动隐藏控制条
     autoHideControls: true,
     reUseThen: false,
+    autoHideTimeoutKey: null,
 
     //自动隐藏控制条时间
     hideControlsTimeout: 5000,
@@ -267,32 +269,6 @@ export default class extends EP {
   }
 
   renderLoading = () => {
-    const { loadingColor } = this.props;
-
-    return (
-      <Modal
-        animationType={"none"}
-        transparent={true}
-        visible={this.state.loading}
-        onRequestClose={() => console.log("Modal has been closed.")}
-      >
-        <View
-          style={[
-            styles.indicator,
-            {
-              width: deviceInfo.deviceWidth,
-              height: this.state.playerHeight
-            }
-          ]}
-        >
-          <ActivityIndicator
-            animating={true}
-            style={[{ height: 80 }]}
-            color={loadingColor || "red"}
-            size="large"
-          />
-        </View>
-      </Modal>
-    );
+    return <Loading visible={this.state.loading} />;
   };
 }

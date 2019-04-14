@@ -27,10 +27,19 @@ export default class extends LE {
       showVolumnSlider: false
     });
     if (_ifshow && autoHideControls) {
-      setTimeout(() => {
+      const { autoHideTimeoutKey } = this.state;
+      if (autoHideTimeoutKey) {
+        clearTimeout(autoHideTimeoutKey);
+      }
+
+      let _key = setTimeout(() => {
         const { autoHideControls } = this.state;
         if (autoHideControls) this.hideControls();
       }, this.state.hideControlsTimeout);
+
+      this.setState({
+        autoHideTimeoutKey: _key
+      });
     }
   };
 
@@ -140,10 +149,8 @@ export default class extends LE {
   };
 
   renderTitle = text => {
-    const { maxTitleFonts } = this.props || this.state;
-
+    const maxTitleFonts = this.props.maxTitleFonts || this.state.maxTitleFonts;
     let L = text.length;
-
     if (L > maxTitleFonts) {
       let arr = [];
       for (let i = 0; i < maxTitleFonts; i++) {
